@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>are you ok?</div>
+    <span>行内元素</span>
+    <script>
+        let arr = [
+            {
+                id:'01',
+                pid:'',
+                name:'一级菜单'
+            },
+            {
+                id:'02',
+                pid:'01',
+                name:'二级菜单'
+            },
+            {
+                id:'03',
+                pid:'02',
+                name:'三级菜单'
+            },
+            {
+                id:'04',
+                pid:'03',
+                name:'四级菜单'
+            },
+        ]
+        function treeMenu(arr) {
+            let tree = []
+            const map = {}
+            for (let item of arr) {
+                let newItem = map[item.id] = {
+                    ...item,
+                    children: []
+                }
+                if (map[item.pid]) { 
+                    let parent = map[item.pid]
+                    parent.children.push(newItem)
+                } else { 
+                    tree.push(newItem)
+                }
+            }
+            return tree
+        }
+        console.log('treeMenu(arr):',treeMenu(arr));
+
+    </script>
+</body>
+
+</html>
