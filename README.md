@@ -1,2 +1,2 @@
 # git_workspace
-to learn about github's various features
+## this is a demo workspace for myself
